@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="nn">
+    <ul>
+        <li>0</li>
+        <li>0</li>
+        <li>0</li>
+    </ul>
+</div>
+<input type="button" onclick="showRandomNum(this, 10)" value="开始">
+<script src="/static/js/jquery.min.js"></script>
+<script>
+    function choujiang(num) {
+        $.ajax({
+            url: "./get_ret?num=" + num,
+            type: "GET",
+            success: function (data) {
+                var d = JSON.parse(data);
+                for (var i = 0; i < num; i++) {
+                    console.log(d[i]);
+                }
+                $('#nn').html($('#nn').html() + data + '<br>');
+            }
+        })
+    }
+
+</script>
+<script>
+    var myNumber;
+    var arr = [];
+    var ref;
+
+    function rdm() {
+        $("#nn ul li").each(function () {
+            $(this).text(Math.floor(Math.random() * 100 + 1));
+        })
+    }
+
+    /*随机所有的code并且不重复*/
+    function showRandomNum(th, num) {
+        console.log($(th).val());
+
+        if ($(th).val() == '开始') {
+            console.log('kaishi');
+            ref = setInterval(function (args) {
+                rdm();
+            }, 10);
+            $(th).val('停止');
+        } else {
+            clearInterval(ref);
+            $.ajax({
+                url: "./get_ret?num=" + num,
+                type: "GET",
+                success: function (data) {
+                    var d = JSON.parse(data);
+                    var html = '';
+                    for (var i = 0; i < num; i++) {
+                        html = html+ '<li>'+d[i]+'</li>';
+                        console.log(d[i]);
+                    }
+                    $("#nn ul").html(html);
+
+                }
+            })
+
+        }
+
+    }
+
+
+    function choujiang(num) {
+        myNumber = setInterval(function () {
+            showRandomNum(num);
+            $("#btn").attr("disabled", true);
+        }, 30);
+
+        setTimeout(function () {
+            clearInterval(myNumber);
+            $("#btn").attr("disabled", false);
+        }, 1000);
+        /*
+        $.ajax({
+            url: "get_ret.php?num="+num,
+            type: "GET",
+            success: function (data) {
+                var d = JSON.parse(data);
+                var str =  "";
+                for (var i = 0; i < num; i++) {
+                    console.log(d[i]);
+                    str += '<span class="timer count-title" id="count-number" data-to="'+d[i]+'" data-speed="5000">'+d[i]+'</span>';
+                }
+                $('#data').html(str);
+                $('.timer').each(count);
+            }
+        })
+        */
+    }
+</script>
+</body>
+</html>

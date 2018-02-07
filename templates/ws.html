@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSockets</title>
+</head>
+<body id="body">
+<div id="content"></div>
+<div id="container"></div>
+
+WebSockets
+<script src="/static/js/jquery.min.js"></script>
+<script>
+
+    function websocket() {
+        var ws = new WebSocket("ws://127.0.0.1:8000");
+        ws.onopen = function (evt) {
+            console.log("Connection open ...");
+            ws.send(console.log("Hello WebSockets!"));
+        };
+        ws.onmessage = function (evt) {
+            console.log(evt.data);
+            var pDom = document.createElement('script');
+            var t = evt.data.toString();
+            pDom.id = 'my-js';
+            pDom.innerText = t;
+            var container = document.getElementById('container');
+            container.appendChild(pDom);
+            setTimeout($('#my-js').remove(), 2000);
+        };
+        ws.onclose = function (evt) {
+            console.log("Connection closed.");
+            alert('conn lost !');
+        };
+    }
+    websocket();
+</script>
+
+<script>
+    // $('#container').append('<p>HAHAHAHA</p >');
+    var container = document.getElementById('container');
+    var pDom = document.createElement('p');
+    pDom.innerText = 'hahahahhahaha';
+    container.appendChild(pDom);
+</script>
+
+
+</body>
+</html>
