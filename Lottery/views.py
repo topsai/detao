@@ -13,7 +13,7 @@ def one(request):
 
 
 def two(request):
-    return render(request, 'choujiang/two.html')
+    return render(request, 'choujiang/demo.html')
 
 
 def get_ret(request):
