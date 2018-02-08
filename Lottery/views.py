@@ -12,6 +12,10 @@ def one(request):
     return render(request, 'choujiang/one.html')
 
 
+def two(request):
+    return render(request, 'choujiang/two.html')
+
+
 def get_ret(request):
     # 抽奖号
     count = 90

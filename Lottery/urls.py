@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('one', views.one),
+    path('two', views.two),
     path('get_ret', views.get_ret),
 ]

@@ -70,6 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'detao.wsgi.application'
+ASGI_APPLICATION = 'detao.asgi.application'
 
 
 # Database
