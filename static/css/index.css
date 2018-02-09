@@ -42,7 +42,7 @@ body{
     left: -32px;
     top: -24px;
     width: 100%;
-    z-index: 5;
+    /*z-index: 5;*/
 }
 .desc-box img{
     z-index: 6;
@@ -95,7 +95,7 @@ body{
 }
 .btn-box{
     height: 50px;
-    width: 540px;
+    width: 320px;
     margin: 0 auto;
     overflow: hidden;
     z-index: 999;
@@ -103,7 +103,7 @@ body{
     top: 10px;
 }
 .btn{
-    width:260px;
+    width:320px;
     height:50px;
     float: left;
     line-height: 50px;
@@ -119,5 +119,5 @@ body{
     color: #fff;
 }
 .btn:last-child{
-    margin-left: 20px;
+    /*margin-left: 20px;*/
 }
