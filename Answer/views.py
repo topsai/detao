@@ -269,7 +269,7 @@ ret = {"code": 0, "data": {"amountAllUser": 2,
                                "title": "座头鲸的‘座头’来源于:"}, "selection": 2}, "message": "成功"}
 # api: gongbudaan_url
 
-ret: {"code": 0,
+ret = {"code": 0,
       "data": {"round": {"bonusAmount": 2000, "id": 151747643566410000, "playNumber": 0, "startTime": ""},
                "winners": [{"id": 151817140400710295,
                             "wxAvatarUrl": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLjcVoo3kWxewm8GMRyicKVChj8k9Wt7kJKO1lnVUDX25P4Ic8WvMd4J0xf8USwzNcibed3hj7iatstA/0",
