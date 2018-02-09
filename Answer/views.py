@@ -29,6 +29,8 @@ bimu_url = '{}/mobile/amqa/round/qa/direct/finale'.format(hosts)
 state_url = '{}/mobile/amqa/round/qa/state'.format(hosts)
 # 重置
 reset_url = '{}/mobile/amqa/round/qa/reset'.format(hosts)
+# 获取某场次结果
+get_roundret_url = '{}/mobile/amqa/round/qa/direct/round/result'.format(hosts)
 
 
 api_dict = {

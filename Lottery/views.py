@@ -8,6 +8,7 @@ def index(request):
     return render(request, 'choujiang/index.html')
 
 
+# 一等奖
 def one(request):
     return render(request, 'choujiang/one.html')
 
@@ -15,6 +16,11 @@ def one(request):
 # 二等奖
 def two(request):
     return render(request, 'choujiang/two.html')
+
+
+# 三等奖
+def three(request):
+    return render(request, 'choujiang/three.html')
 
 
 def get_ret(request):
