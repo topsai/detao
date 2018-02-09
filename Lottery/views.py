@@ -11,9 +11,9 @@ def index(request):
 def one(request):
     return render(request, 'choujiang/one.html')
 
-
+# 二等奖
 def two(request):
-    return render(request, 'choujiang/demo.html')
+    return render(request, 'choujiang/two.html')
 
 
 def get_ret(request):

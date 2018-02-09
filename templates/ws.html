@@ -13,7 +13,7 @@ WebSockets
 <script>
 
     function websocket() {
-        var ws = new WebSocket("ws://127.0.0.1:8000");
+        var ws = new WebSocket("ws://detao.xinlianpu.com:65435");
         ws.onopen = function (evt) {
             console.log("Connection open ...");
             ws.send(console.log("Hello WebSockets!"));
