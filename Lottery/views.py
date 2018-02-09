@@ -2,6 +2,13 @@ from django.shortcuts import render, HttpResponse
 import random
 import json
 
+# 人数共计
+max = 90
+lotters = []
+for i in range(1, max):
+    lotters.append(i)
+all_lotters = []
+
 
 # Create your views here.
 def index(request):
@@ -24,25 +31,18 @@ def three(request):
 
 
 def get_ret(request):
-    # 抽奖号
-    # 计数
-    count = 1
-    # 人数共计
-    max = 90
     try:
         num = int(request.GET.get('num'))
     except Exception as e:
         return HttpResponse(status=404)
-
+    # 本次获奖
     ret = []
-    if num == 10:
-        ret.append(11)
     while ret.__len__() < num:
-        rdm = random.randint(1, max)
-        while rdm in ret:
-            print('有重复')
-            rdm = random.randint(1, max)
+        rdm = lotters.pop()
         ret.append(rdm)
     ret.sort()
+    all_lotters.extend(ret)
+    all_lotters.sort()
     print(ret)
+    print('all:', all_lotters)
     return HttpResponse(json.dumps(ret))

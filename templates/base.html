@@ -155,11 +155,11 @@
                 {% endfor %}
                 <input class="btn btn-primary" type="submit" value="闭幕" onclick="bimu()">
             </div>
-        选择服务器：
-        <select id="host">
-            <option value=0>https://test-oa.detaogig.com</option>
-            <option value=1>http://192.168.4.121:8080/detao-oa</option>
-        </select>
+            选择服务器：
+            <select id="host">
+                <option value=0>https://test-oa.detaogig.com</option>
+                <option value=1>http://192.168.4.121:8080/detao-oa</option>
+            </select>
             <input type="button" value="确定" onclick="choise_host()">
             <br> <br> <br>
             这是题
@@ -171,6 +171,11 @@
             <div id="answer">
 
             </div>
+            <br> <br>
+            这是统计
+            <div id="tongji">
+
+            </div>
             <br> <br> <br>
             -------------------------下面是测试--------------------------------<br><br><br><br><br>
             {#            <label>输入0 返回开幕<input class="alert-danger" id="reset" type="number"></label>#}
@@ -178,11 +183,32 @@
             <div class="row">
 
                 <div class="form-group has-error col-lg-5">
-                    <label class="control-label" for="inputError1">输入0 返回开幕</label>
+                    <label class="control-label" for="inputError1">输入0 返回开幕----> 999 重置服务器</label>
                     <input type="number" class="form-control col-lg-3" id="reset">
                     <br> <br>
                     <input class="btn btn-danger col-lg-2 pull-right" onclick="reset($('#reset').val())" type="submit"
                            value="重置">
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="form-group has-error col-lg-5">
+                    <label class="control-label" for="inputError1">获取回和结果</label>
+                    {#                    <input type="number" class="form-control col-lg-3" id="round_ret">#}
+
+                    <select id="round_ret">
+                        <option value=0>第1轮</option>
+                        <option value=1>第2轮</option>
+                        <option value=2>第3轮</option>
+                        <option value=3>第4轮</option>
+                        <option value=4>第5轮</option>
+                    </select>
+
+
+                    <br> <br>
+                    <input class="btn btn-default col-lg-2 pull-right" onclick="getret($('#round_ret').val())"
+                           type="submit"
+                           value="获取">
                 </div>
 
 
@@ -837,7 +863,7 @@
     //  结束 round
     function end_round(j) {
         var d1 = {
-            'round': j,
+            'round': j
         };
         $.ajax({
             url: "./ajax/",
@@ -847,6 +873,31 @@
             success: function (data, a1, a2) {
                 console.log(data);
                 hidden_btn(data);
+            }
+        });
+        $.ajax({
+            url: "./ajax/",
+            type: "POST",
+            headers: {'x-CSRFtoken': $.cookie('csrftoken')},
+            data: {'api': 'get_roundret_url', 'data': JSON.stringify(d1), 'host': host},  //ajax获取form中所有数据
+            success: function (data, a1, a2) {
+                console.log('回合结束：', data);
+                $('#tongji').html(data);
+            }
+        })
+    }
+
+    function getret(j) {
+        j = Number(j);
+        var d1 = {'round': j};
+        $.ajax({
+            url: "./ajax/",
+            type: "POST",
+            headers: {'x-CSRFtoken': $.cookie('csrftoken')},
+            data: {'api': 'get_roundret_url', 'data': JSON.stringify(d1), 'host': host},  //ajax获取form中所有数据
+            success: function (data, a1, a2) {
+                console.log('回合结束：', data);
+                $('#tongji').html(data);
             }
         })
     }

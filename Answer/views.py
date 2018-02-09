@@ -28,10 +28,9 @@ bimu_url = '{}/mobile/amqa/round/qa/direct/finale'.format(hosts)
 # 状态
 state_url = '{}/mobile/amqa/round/qa/state'.format(hosts)
 # 重置
-reset_url = '{}/mobile/amqa/round/qa/reset'.format(hosts)
+reset_url = '{}/mobile/amqa/round/qa/direct/reset'.format(hosts)
 # 获取某场次结果
 get_roundret_url = '{}/mobile/amqa/round/qa/direct/round/result'.format(hosts)
-
 
 api_dict = {
     'kaimu_url': kaimu_url,
@@ -40,6 +39,8 @@ api_dict = {
     'gongbudaan_url': gongbudaan_url,
     'end_round_url': end_round_url,
     'bimu_url': bimu_url,
+    'reset_url': reset_url,
+    'get_roundret_url': get_roundret_url,
 }
 
 
@@ -69,7 +70,6 @@ def send_msg(request):
 
 def ajax(request):
     global r
-
     print('ajax')
     print('POST:', request.POST)
     reset = request.POST.get('reset')
@@ -79,7 +79,6 @@ def ajax(request):
         print('测试服务器')
         global test_r
         hosts = 'http://192.168.4.121:8080/detao-oa'
-        # 开幕
         kaimu_url = '{}/mobile/amqa/round/qa/direct/foreshow'.format(hosts)
         # 开始本轮答题
         action_round_url = '{}/mobile/amqa/round/qa/direct/round/begin'.format(hosts)
@@ -93,6 +92,10 @@ def ajax(request):
         bimu_url = '{}/mobile/amqa/round/qa/direct/finale'.format(hosts)
         # 状态
         state_url = '{}/mobile/amqa/round/qa/state'.format(hosts)
+        # 重置
+        reset_url = '{}/mobile/amqa/round/qa/direct/reset'.format(hosts)
+        # 获取某场次结果
+        get_roundret_url = '{}/mobile/amqa/round/qa/direct/round/result'.format(hosts)
 
         api_dict = {
             'kaimu_url': kaimu_url,
@@ -101,6 +104,8 @@ def ajax(request):
             'gongbudaan_url': gongbudaan_url,
             'end_round_url': end_round_url,
             'bimu_url': bimu_url,
+            'reset_url': reset_url,
+            'get_roundret_url': get_roundret_url,
         }
 
         if reset:
@@ -108,6 +113,9 @@ def ajax(request):
             print('重置', reset, type(reset), int(reset))
             test_r = reset
             print('R:', test_r)
+            print(api_dict.get('reset_url'))
+            ret0 = requests.post(url=api_dict.get('reset_url'), data={})
+            print('重置结果：-----》', ret0.text)
             return HttpResponse(test_r)
         api = request.POST.get('api')
 
@@ -115,11 +123,13 @@ def ajax(request):
         data = request.POST.get('data')
         if not data:
             data = {}
+        print('api_real:', api_real)
 
         ret0 = requests.post(url=api_real, data=data)
         print('data:', data)
         print(ret0)
-        print('ret:', ret0.text)
+        print('ret_text:', ret0.text)
+        print('ret_json:', ret0.json())
         print('api:', api)
         code = ret0.json().get('code')
 
@@ -155,7 +165,6 @@ def ajax(request):
 
     else:
         hosts = 'https://test-oa.detaogig.com'
-        # 开幕
 
         kaimu_url = '{}/mobile/amqa/round/qa/direct/foreshow'.format(hosts)
         # 开始本轮答题
@@ -170,6 +179,10 @@ def ajax(request):
         bimu_url = '{}/mobile/amqa/round/qa/direct/finale'.format(hosts)
         # 状态
         state_url = '{}/mobile/amqa/round/qa/state'.format(hosts)
+        # 重置
+        reset_url = '{}/mobile/amqa/round/qa/direct/reset'.format(hosts)
+        # 获取某场次结果
+        get_roundret_url = '{}/mobile/amqa/round/qa/direct/round/result'.format(hosts)
 
         api_dict = {
             'kaimu_url': kaimu_url,
@@ -178,6 +191,8 @@ def ajax(request):
             'gongbudaan_url': gongbudaan_url,
             'end_round_url': end_round_url,
             'bimu_url': bimu_url,
+            'reset_url': reset_url,
+            'get_roundret_url': get_roundret_url,
         }
 
         if reset:
@@ -185,6 +200,9 @@ def ajax(request):
             print('重置', reset, type(reset), int(reset))
             r = reset
             print('R:', r)
+            if reset == 999:
+                ret0 = requests.post(url=reset_url, data={})
+                print('重置结果：-----》', ret0.text)
             return HttpResponse(r)
         api = request.POST.get('api')
 
@@ -201,7 +219,7 @@ def ajax(request):
         code = ret0.json().get('code')
 
         if code == 0:
-            if api == 'gongbudaan_url' or api == 'kaiti_url':
+            if api == 'gongbudaan_url' or api == 'kaiti_url' or api == 'get_roundret_url':
                 d = ret0.json().get('data')
                 if d:
                     r = r + 1
@@ -214,6 +232,14 @@ def ajax(request):
                         <div class="1 alert" role="alert">B：{}</div>
                         <div class="2 alert" role="alert">C：{}</div>
                         '''.format(title, answers[0], answers[1], answers[2])
+                    elif api == 'get_roundret_url':
+                        dddd = {"round": {
+                            "bonusAmount": 2000, "id": 151747643566410000, "playNumber": 0,
+                            "startTime": "10:02"},
+                            "winners": []}
+                        zongshu = d.get('playNumber')
+                        winners = d.get('winners')
+                        ret_html = '<p> 总数：{}</p><p> winners:{}</p>'.format(zongshu, winners)
                     else:
                         correctAnswer = d.get('qa').get('correctAnswer')
                         ret_html = correctAnswer
@@ -242,3 +268,5 @@ ret = {"code": 0, "data": {"amountAllUser": 2,
                                "correctAnswer": 2, "qaIndex": 0,
                                "title": "座头鲸的‘座头’来源于:"}, "selection": 2}, "message": "成功"}
 # api: gongbudaan_url
+
+ret: {"code":0,"data":{"round":{"bonusAmount":2000,"id":151747643566410000,"playNumber":0,"startTime":"10:02"},"winners":[{"id":151817140400710295,"wxAvatarUrl":"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLjcVoo3kWxewm8GMRyicKVChj8k9Wt7kJKO1lnVUDX25P4Ic8WvMd4J0xf8USwzNcibed3hj7iatstA/0","wxNickname":"范斯特罗夫斯基","wxOpenId":"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLjcVoo3kWxewm8GMRyicKVChj8k9Wt7kJKO1lnVUDX25P4Ic8WvMd4J0xf8USwzNcibed3hj7iatstA/0"}]},"message":"成功"}
