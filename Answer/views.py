@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse
 from mywebsocket import consumers
 import requests
 import json
+from django.views.decorators.csrf import csrf_exempt
 
 # 步骤
 r = 0
@@ -68,7 +69,7 @@ def send_msg(request):
         consumers.send_msg(request.POST.get('msg'))
         return HttpResponse('ok')
 
-
+@csrf_exempt
 def ajax(request):
     global r
     global api_dict

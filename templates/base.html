@@ -840,7 +840,7 @@
             url: "./ajax/",
             type: "POST",
             headers: {'x-CSRFtoken': $.cookie('csrftoken')},
-            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            {#contentType: "application/x-www-form-urlencoded; charset=UTF-8",#}
             data: {'api': 'get_roundret_url', 'data': JSON.stringify(d1), 'host': host},  //ajax获取form中所有数据
             success: function (data, a1, a2) {
                 var ret;
