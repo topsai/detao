@@ -844,7 +844,7 @@
             success: function (data, a1, a2) {
                 var ret;
                 ret = JSON.parse(JSON.parse(data)['d']);
-                var html = '<p>答对：'+ret.length+' 人</p>';
+                var html = '<p>Round:'+j+'</p><p>答对：'+ret.length+' 人</p>';
                 for (var i = 0; i < ret.length; i++) {
                     console.log(ret[i]);
                     html += '<p>'+ ret[i]['wxNickname']+ ' <img style="width:20px" src="'+ret[i]['wxAvatarUrl']+'"></p>';
