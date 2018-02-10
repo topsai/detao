@@ -89,12 +89,12 @@ def ajax(request):
         r = reset
         if reset == 999:
             r = 0
-            ret0 = requests.post(url=this_host+api_dict.get('reset_url'), data={})
+            ret0 = requests.post(url=this_host + api_dict.get('reset_url'), data={})
             print('重置结果：-----》', ret0.text)
         print('R:', r)
         return HttpResponse(r)
     api = request.POST.get('api')
-    api_real = this_host+api_dict.get(api)
+    api_real = this_host + api_dict.get(api)
     data = request.POST.get('data')
     if not data:
         data = {}
@@ -114,18 +114,27 @@ def ajax(request):
                     answers, title = d.get('answers'), d.get('title')
                     ret_html = '''
                     <p>题目：{}</p>
-                    <div class="0 alert" role="alert">A：{}</div>
-                    <div class="1 alert" role="alert">B：{}</div>
-                    <div class="2 alert" role="alert">C：{}</div>
+                    <div class="0 alert" role="alert alert-info">A：{}</div>
+                    <div class="1 alert" role="alert alert-info">B：{}</div>
+                    <div class="2 alert" role="alert alert-info">C：{}</div>
                     '''.format(title, answers[0], answers[1], answers[2])
                 elif api == 'get_roundret_url':
                     dddd = {"round": {
                         "bonusAmount": 2000, "id": 151747643566410000, "playNumber": 0,
                         "startTime": "10:02"},
                         "winners": []}
-                    zongshu = d.get('playNumber')
+                    zongshu = 50
                     winners = d.get('winners')
-                    ret_html = '<p> 总数：{}</p><p> winners:{}</p>'.format(zongshu, winners)
+                    ret = []
+                    for i in winners:
+                        print()
+                        print(i.get('wxAvatarUrl'))
+                        ret.append({
+                            'wxNickname': i.get('wxNickname'),
+                            'wxAvatarUrl': i.get('wxAvatarUrl'),
+                        })
+                    ret_html = json.dumps(ret)
+                    print(ret_html)
                 else:
                     correctAnswer = d.get('qa').get('correctAnswer')
                     ret_html = correctAnswer

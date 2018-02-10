@@ -85,9 +85,9 @@
 
             <div id="question" class="borderbox">
                 <p>题目：</p>
-                <div class="0 alert" role="alert">A：</div>
-                <div class="1 alert" role="alert">B：</div>
-                <div class="2 alert" role="alert">C：</div>
+                <div class="0 alert alert-info" role="alert"></div>
+                <div class="1 alert alert-info" role="alert"></div>
+                <div class="2 alert alert-info" role="alert"></div>
 
             </div>
 
@@ -655,7 +655,7 @@
 <script>
     function set_model(time) {
         var dely_time = 1000;
-        if(time){
+        if (time) {
             dely_time = time;
         }
         $('#example').modal('show');
@@ -715,8 +715,7 @@
                     console.log(data);
                     $('.btn-lg').addClass('hidden');
                     console.log($('#' + data).toggleClass("hidden"));
-                    $('#answer').empty();
-                    $('#question').empty();
+                    $('#question div').empty();
                 }
             })
         } else {
@@ -737,8 +736,7 @@
             success: function (data, a1, a2) {
                 console.log(data);
                 hidden_btn(data);
-                $('#answer').empty();
-                $('#question').empty();
+                $('#question div').empty();
             }
 
         })
@@ -756,8 +754,7 @@
             success: function (data, a1, a2) {
                 console.log(data);
                 hidden_btn(data);
-                $('#answer').empty();
-                $('#question').empty();
+                $('#question div').empty();
 
             }
         })
@@ -765,7 +762,7 @@
 
     // 开题
     function kaiti(round, qaIndex) {
-        set_model(15000);
+        set_model(10000);
         var d1 = {
             'round': round,
             'qaIndex': qaIndex
@@ -831,18 +828,10 @@
                 hidden_btn(data);
             }
         });
-        $.ajax({
-            url: "./ajax/",
-            type: "POST",
-            headers: {'x-CSRFtoken': $.cookie('csrftoken')},
-            data: {'api': 'get_roundret_url', 'data': JSON.stringify(d1), 'host': host},  //ajax获取form中所有数据
-            success: function (data, a1, a2) {
-                console.log('回合结束：', data);
-                $('#tongji').html(data);
-            }
-        })
+        getret(j)
     }
 
+    // 获取回合结果
     function getret(j) {
         j = Number(j);
         var d1 = {'round': j};
@@ -850,10 +839,17 @@
             url: "./ajax/",
             type: "POST",
             headers: {'x-CSRFtoken': $.cookie('csrftoken')},
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             data: {'api': 'get_roundret_url', 'data': JSON.stringify(d1), 'host': host},  //ajax获取form中所有数据
             success: function (data, a1, a2) {
-                console.log('回合结束：', data);
-                $('#tongji').html(data);
+                var ret;
+                ret = JSON.parse(JSON.parse(data)['d']);
+                var html = '<p>答对：'+ret.length+' 人</p>';
+                for (var i = 0; i < ret.length; i++) {
+                    console.log(ret[i]);
+                    html += '<p>'+ ret[i]['wxNickname']+ ' <img style="width:20px" src="'+ret[i]['wxAvatarUrl']+'"></p>';
+                }
+                $('#tongji').html(html);
             }
         })
     }
