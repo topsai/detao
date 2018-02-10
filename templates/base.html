@@ -43,7 +43,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">德稻答题系统</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -63,7 +63,7 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="">控制台 <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="">控制台<span class="sr-only">(current)</span></a></li>
                 <li><a href="/Lottery/">抽奖</a></li>
                 <li><a href="./ws">websocket</a></li>
                 <li><a href="#">Export</a></li>
@@ -82,139 +82,22 @@
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ">
-            <h1 class="page-header">控制台</h1>
 
-            <h2 class="sub-header">-</h2>
-            <div class="row hidden">
-                <form class="form-horizontal" action="./" method="post">
-                    {% csrf_token %}
-                    {% for i in topic_num %}
-                        <div class="form-group">
-                            <label for="input{{ i }}" class="col-sm-2 control-label">第 {{ i }} 题</label>
-                            <div class="col-lg-10">
-                                <textarea name="title{{ i }}" class="form-control" id="input{{ i }}"
-                                          placeholder="题目"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="answer0" class="col-sm-2 control-label">A：</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="title{{ i }}" class="form-control" id="answer0" placeholder="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="answer1" class="col-sm-2 control-label">B：</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="title{{ i }}" class="form-control" id="answer1" placeholder="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="answer2" class="col-sm-2 control-label">C：</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="title{{ i }}" class="form-control" id="answer2" placeholder="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-
-                            <label for="inputPassword3" class="col-sm-2 control-label">正确答案：</label>
-                            <div class="col-sm-2">
-                                <select class="form-control" name="correct_answer">
-                                    <option>A</option>
-                                    <option>B</option>
-                                    <option>C</option>
-                                </select>
-                            </div>
-                        </div>
-                    {% endfor %}
-                    <input class="btn btn-primary" type="submit" value="Submit">
-                </form>
-
-            </div>
-            <div class="row hidden">
-                <input class="btn btn-primary" type="submit" value="开幕" onclick="kaimu()">
-                {% for j in round_num %}
-                    <div>
-
-                        <input class="btn btn-primary" type="submit" value="开始第{{ j }}轮"
-                               onclick="action_round({{ j }})">
-                        <div>
-                            {% for i in topic_num %}
-                                <div>
-                                    <input class="btn btn-primary" type="submit" value="开题{{ i }}"
-                                           onclick="kaiti({{ j }}, {{ i }})">
-                                    <input class="btn btn-primary" type="submit" value="公布答案{{ i }}"
-                                           onclick="gongbudaan({{ j }}, {{ i }})">
-                                </div>
-                            {% endfor %}
-                        </div>
-                        <input class="btn btn-primary" type="submit" value="结束第{{ j }}轮" onclick="end_round({{ j }})">
-
-                    </div>
-                    <br><br><br><br>
-                {% endfor %}
-                <input class="btn btn-primary" type="submit" value="闭幕" onclick="bimu()">
-            </div>
-            选择服务器：
-            <select id="host">
-                <option value=0>https://test-oa.detaogig.com</option>
-                <option value=1>http://192.168.4.121:8080/detao-oa</option>
-            </select>
-            <input type="button" value="确定" onclick="choise_host()">
-            <br> <br> <br>
-            这是题
             <div id="question" class="borderbox">
+                <p>题目：</p>
+                <div class="0 alert" role="alert">A：</div>
+                <div class="1 alert" role="alert">B：</div>
+                <div class="2 alert" role="alert">C：</div>
 
             </div>
-            <br> <br>
-            这是答案
-            <div id="answer">
 
-            </div>
             <br> <br>
-            这是统计
+            统计结果
             <div id="tongji">
 
             </div>
-            <br> <br> <br>
-            -------------------------下面是测试--------------------------------<br><br><br><br><br>
-            {#            <label>输入0 返回开幕<input class="alert-danger" id="reset" type="number"></label>#}
-
-            <div class="row">
-
-                <div class="form-group has-error col-lg-5">
-                    <label class="control-label" for="inputError1">输入0 返回开幕----> 999 重置服务器</label>
-                    <input type="number" class="form-control col-lg-3" id="reset">
-                    <br> <br>
-                    <input class="btn btn-danger col-lg-2 pull-right" onclick="reset($('#reset').val())" type="submit"
-                           value="重置">
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="form-group has-error col-lg-5">
-                    <label class="control-label" for="inputError1">获取回和结果</label>
-                    {#                    <input type="number" class="form-control col-lg-3" id="round_ret">#}
-
-                    <select id="round_ret">
-                        <option value=0>第1轮</option>
-                        <option value=1>第2轮</option>
-                        <option value=2>第3轮</option>
-                        <option value=3>第4轮</option>
-                        <option value=4>第5轮</option>
-                    </select>
-
-
-                    <br> <br>
-                    <input class="btn btn-default col-lg-2 pull-right" onclick="getret($('#round_ret').val())"
-                           type="submit"
-                           value="获取">
-                </div>
-
-
-            </div>
-
-
+            <br><br><br>
+            <!-- 按钮 -->
             <div class="row">
                 <input id="0" class="btn btn-primary btn-lg hidden" type="submit" value="开幕" onclick="kaimu()">
                 <div class="">
@@ -696,10 +579,67 @@
 
                 <input id="131" class="btn btn-primary btn-lg hidden" type="submit" value="闭幕" onclick="bimu()">
             </div>
+            <!-- 按钮 -->
+
+
+            <!-- 重置 -->
+            <div class="row" style="margin-top: 200px">
+
+                <div class="form-group has-error col-lg-5">
+                    <label class="control-label" for="inputError1">输入0 返回开幕----> 999 重置服务器</label>
+                    <input type="number" class="form-control col-lg-3" id="reset">
+                    <br> <br>
+                    <input class="btn btn-danger col-lg-2 pull-right" onclick="reset($('#reset').val())" type="submit"
+                           value="重置">
+                </div>
+            </div>
+            <!-- 重置 -->
+            选择服务器：
+            <select id="host">
+                <option value=0>https://test-oa.xinlianpu.com</option>
+                <option value=1>http://192.168.4.121:8080/detao-oa</option>
+            </select>
+            <input type="button" value="确定" onclick="choise_host()">
+            <br> <br> <br>
+            <!-- 获取结果 -->
+            <div class="row">
+
+                <div class="form-group has-error col-lg-5">
+                    <label class="control-label" for="inputError1">获取回和结果</label>
+                    {#                    <input type="number" class="form-control col-lg-3" id="round_ret">#}
+
+                    <select id="round_ret">
+                        <option value=0>第1轮</option>
+                        <option value=1>第2轮</option>
+                        <option value=2>第3轮</option>
+                        <option value=3>第4轮</option>
+                        <option value=4>第5轮</option>
+                    </select>
+
+
+                    <br> <br>
+                    <input class="btn btn-default col-lg-2 pull-right" onclick="getret($('#round_ret').val())"
+                           type="submit"
+                           value="获取">
+                </div>
+
+
+            </div>
+            <!-- 获取结果 -->
+
 
         </div>
     </div>
 </div>
+
+
+<div class="container">
+    <div id="example" class="modal hide fade in" style="display: none; ">
+
+    </div>
+</div>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap-modal.js"></script>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -713,6 +653,17 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="https://v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js"></script>
 <script>
+    function set_model(time) {
+        var dely_time = 1000;
+        if(time){
+            dely_time = time;
+        }
+        $('#example').modal('show');
+        setTimeout(function () {
+            $('#example').modal('hide');
+        }, dely_time)
+    }
+
     function hidden_btn(d) {
         console.log($('#' + d).toggleClass("hidden"));
         console.log($('#' + (d - 1)).toggleClass("hidden"));
@@ -777,6 +728,7 @@
 
     // 开幕
     function kaimu() {
+        set_model();
         $.ajax({
             url: "./ajax/",
             type: "POST",
@@ -794,6 +746,7 @@
 
     // 开始round
     function action_round(j) {
+        set_model();
         var d0 = {'round': j};
         $.ajax({
             url: "./ajax/",
@@ -812,6 +765,7 @@
 
     // 开题
     function kaiti(round, qaIndex) {
+        set_model(15000);
         var d1 = {
             'round': round,
             'qaIndex': qaIndex
@@ -837,6 +791,7 @@
 
     // 公布答案
     function gongbudaan(round, qaIndex) {
+        set_model();
         var d1 = {
             'round': round,
             'qaIndex': qaIndex
@@ -862,6 +817,7 @@
 
     //  结束 round
     function end_round(j) {
+        set_model();
         var d1 = {
             'round': j
         };
@@ -904,6 +860,7 @@
 
     // 闭幕
     function bimu(j) {
+        set_model();
         var d1 = {};
         $.ajax({
             url: "./ajax/",

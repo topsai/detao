@@ -130,3 +130,10 @@ CHANNEL_LAYERS = {
         "ROUTING": "mywebsocket.routing.channel_routing",
     },
 }
+
+# 分离生产环境和测试环境
+# import socket
+# if socket.get_hostname() == 'joe-mac-mini':
+#     #Development Server Settings go here
+# else:
+#     #Production Server Settings go here

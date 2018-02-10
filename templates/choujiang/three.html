@@ -123,16 +123,7 @@
                         }
                     },
                     error: function () {
-                        retury_count++;
-                        if (retury_count % 10 == 0) {
-                            alert('网络好像出了些问题。。。，重试？');
-                        }
-
-                        setTimeout(function () {
-                            RandomNum(th, num);
-                        }, 500);
-
-
+                        alert('网络好像出了些问题。。。，重试？');
                     }
                 })
             }
