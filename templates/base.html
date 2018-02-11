@@ -807,7 +807,13 @@
                 var r = ret['r'];
                 var d = ret['d'];
                 var correctAnswer = d['qa']['correctAnswer'];
-                var amountAllUser = d['amountAllUser'];
+                var amountAllUser;
+                var answerChoices = d['answerChoices'];
+                for (var i=0 ;i < 3; i++){
+                    if (answerChoices[i].qaIndex == correctAnswer) {
+                        amountAllUser = answerChoices[i].amount;
+                    }
+                }
                 console.log('剩余人数：',amountAllUser);
                 console.log('这是dddd',d, typeof (d));
                 hidden_btn(r);
