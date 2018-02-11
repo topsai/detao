@@ -4,6 +4,7 @@ import requests
 import json
 from django.views.decorators.csrf import csrf_exempt
 
+
 # 步骤
 r = 0
 print('R:', r)
@@ -68,6 +69,7 @@ def send_msg(request):
     if request.method == 'POST':
         consumers.send_msg(request.POST.get('msg'))
         return HttpResponse('ok')
+
 
 @csrf_exempt
 def ajax(request):
@@ -137,8 +139,11 @@ def ajax(request):
                     ret_html = json.dumps(ret)
                     print(ret_html)
                 else:
+                    # 公布答案
                     correctAnswer = d.get('qa').get('correctAnswer')
-                    ret_html = correctAnswer
+                    amountAllUser = d.get('qa').get('amountAllUser')
+
+                    ret_html = d
 
                 return HttpResponse(json.dumps({'r': r, 'd': ret_html}))
             else:

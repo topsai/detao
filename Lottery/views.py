@@ -1,12 +1,15 @@
 from django.shortcuts import render, HttpResponse
 import random
 import json
+import logging
+
+logger = logging.getLogger('detao')
 
 # 人数共计
 max = 90
 lotters = []
 # 排除
-excspt = 11
+excspt = [11, ]
 
 
 def action():
@@ -15,7 +18,9 @@ def action():
     print(lotters)
     for i in range(1, max + 1):
         lotters.append(i)
-    lotters.pop(excspt - 1)
+
+    for i in excspt:
+        lotters.pop(i - 1)
     random.shuffle(lotters)
 
 
@@ -44,11 +49,16 @@ def three(request):
 
 
 def get_ret(request):
+    logger.debug('---reset---')
+    logger.info('---reset---info')
+    logger.warning('waring------')
+    logger.error('err-----')
     try:
         num = int(request.GET.get('num'))
     except Exception as e:
         reset = request.GET.get('reset')
         if reset:
+
             print('reset')
             action()
             print('new_lotters:----', lotters)
@@ -57,7 +67,6 @@ def get_ret(request):
             return HttpResponse(status=404)
     ret = []
     if num == 1:
-
         pass
     if num == 10:
         pass
@@ -75,4 +84,5 @@ def get_ret(request):
     ret.sort()
     print(ret)
     print('未中奖：', lotters, lotters.__len__())
+    random.shuffle(lotters)
     return HttpResponse(json.dumps(ret))

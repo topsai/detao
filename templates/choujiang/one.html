@@ -76,6 +76,7 @@
                     type: "GET",
                     success: function (data) {
                         $(th).text('开始');
+                        $(th).remove();
                         clearInterval(ref);
                         $("#nn .col-lg-12").empty();
                         var d = JSON.parse(data);

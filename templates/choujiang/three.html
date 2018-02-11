@@ -113,6 +113,7 @@
                     url: "./get_ret?num=" + num,
                     type: "GET",
                     success: function (data) {
+                        $(th).remove();
                         $(th).text('开始');
                         clearInterval(ref);
                         $("#nn .col-lg-1").empty();
@@ -121,6 +122,7 @@
                         for (var i = 0; i < num; i++) {
                             console.log($("#nn .col-lg-1")[i].innerText = d[i]);
                         }
+
                     },
                     error: function () {
                         alert('网络好像出了些问题。。。，重试？');

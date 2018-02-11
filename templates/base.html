@@ -91,7 +91,9 @@
 
             </div>
 
-            <br> <br>
+            <br>
+            <p>剩余人数：<span id="shengyu"></span></p>
+            <br>
             统计结果
             <div id="tongji">
 
@@ -804,10 +806,15 @@
                 var ret = JSON.parse(data);
                 var r = ret['r'];
                 var d = ret['d'];
+                var correctAnswer = d['qa']['correctAnswer'];
+                var amountAllUser = d['amountAllUser'];
+                console.log('剩余人数：',amountAllUser);
+                console.log('这是dddd',d, typeof (d));
                 hidden_btn(r);
-                $('.' + d).addClass('alert-danger');
+                $('.' + correctAnswer).addClass('alert-danger');
                 {#$('#answer').empty();#}
-                $('#answer').text(d);
+                $('#answer').text(correctAnswer);
+                $('#shengyu').text(amountAllUser);
             }
         })
     }
@@ -828,7 +835,7 @@
                 hidden_btn(data);
             }
         });
-        getret(j)
+        getret(j);
     }
 
     // 获取回合结果
