@@ -1,1 +1,8 @@
 2018-02-11 09:30:42,591 [Thread-3:2132] [django.request:93] [base:get_response] [WARNING]- Not Found: /
+2018-02-11 12:57:04,383 [Thread-3:8560] [django.request:93] [base:get_response] [WARNING]- Not Found: /Answer/ajax/
+2018-02-11 13:01:38,690 [Thread-2:10840] [django.request:93] [base:get_response] [WARNING]- Not Found: /Answer/ajax/
+2018-02-11 13:11:26,009 [Thread-2:10864] [django.request:93] [base:get_response] [WARNING]- Not Found: /Answer/ajax/
+2018-02-11 13:12:01,237 [Thread-4:6924] [django.request:93] [base:get_response] [WARNING]- Not Found: /Answer/ajax/
+2018-02-11 13:19:43,640 [Thread-4:1964] [django.request:93] [base:get_response] [WARNING]- Not Found: /Answer/undefined
+2018-02-11 13:21:25,993 [Thread-2:10744] [django.request:93] [base:get_response] [WARNING]- Not Found: /Answer/undefined
+2018-02-11 13:22:57,786 [Thread-4:1964] [django.request:93] [base:get_response] [WARNING]- Not Found: /Answer/undefined

@@ -656,7 +656,7 @@
 <script src="https://v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js"></script>
 <script>
     function set_model(time) {
-        var dely_time = 1000;
+        var dely_time = 5000;
         if (time) {
             dely_time = time;
         }
@@ -764,7 +764,7 @@
 
     // 开题
     function kaiti(round, qaIndex) {
-        set_model(10000);
+        set_model(15000);
         var d1 = {
             'round': round,
             'qaIndex': qaIndex
@@ -850,8 +850,12 @@
             {#contentType: "application/x-www-form-urlencoded; charset=UTF-8",#}
             data: {'api': 'get_roundret_url', 'data': JSON.stringify(d1), 'host': host},  //ajax获取form中所有数据
             success: function (data, a1, a2) {
+                console.log(data);
                 var ret;
-                ret = JSON.parse(JSON.parse(data)['d']);
+                var d;
+                d = JSON.parse(data)['d'];
+                ret = JSON.parse(d)['winners'];
+                console.log(ret, typeof (ret));
                 var html = '<p>Round:'+j+'</p><p>答对：'+ret.length+' 人</p>';
                 for (var i = 0; i < ret.length; i++) {
                     console.log(ret[i]);

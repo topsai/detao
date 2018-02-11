@@ -197,3 +197,372 @@ django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLR
             SELECT name, type FROM sqlite_master
             WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
             ORDER BY name; args=None
+2018-02-11 12:53:43,791 [Dummy-1:4624] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 12:57:17,721 [Dummy-1:7840] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 13:07:07,213 [Dummy-1:8328] [django.db.backends:111] [utils:execute] [DEBUG]- (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 13:07:17,906 [Dummy-1:6292] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 13:08:54,214 [Dummy-1:4908] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 13:08:59,992 [Dummy-1:1488] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 13:11:23,473 [Dummy-1:7120] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 13:18:58,157 [Dummy-1:2820] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 13:19:38,925 [Dummy-1:8448] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 13:19:43,593 [Thread-4:1964] [django.template:878] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\urls\resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ws/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^send_msg/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ajax/$'>], [<URLResolver <module 'Lottery.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Lottery\\urls.py'> (None:None) '^Lottery/'>]], 'path': 'Answer/undefined'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>
+2018-02-11 13:19:43,633 [Thread-4:1964] [django.template:878] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\urls\resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ws/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^send_msg/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ajax/$'>], [<URLResolver <module 'Lottery.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Lottery\\urls.py'> (None:None) '^Lottery/'>]], 'path': 'Answer/undefined'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>
+2018-02-11 13:19:43,635 [Thread-4:1964] [django.template:878] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\urls\resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ws/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^send_msg/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ajax/$'>], [<URLResolver <module 'Lottery.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Lottery\\urls.py'> (None:None) '^Lottery/'>]], 'path': 'Answer/undefined'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <module 'Lottery.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Lottery\\urls.py'> (None:None) '^Lottery/'>
+2018-02-11 13:21:25,984 [Thread-2:10744] [django.template:878] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\urls\resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ws/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^send_msg/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ajax/$'>], [<URLResolver <module 'Lottery.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Lottery\\urls.py'> (None:None) '^Lottery/'>]], 'path': 'Answer/undefined'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>
+2018-02-11 13:21:25,987 [Thread-2:10744] [django.template:878] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\urls\resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ws/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^send_msg/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ajax/$'>], [<URLResolver <module 'Lottery.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Lottery\\urls.py'> (None:None) '^Lottery/'>]], 'path': 'Answer/undefined'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>
+2018-02-11 13:21:25,991 [Thread-2:10744] [django.template:878] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\urls\resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ws/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^send_msg/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ajax/$'>], [<URLResolver <module 'Lottery.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Lottery\\urls.py'> (None:None) '^Lottery/'>]], 'path': 'Answer/undefined'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <module 'Lottery.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Lottery\\urls.py'> (None:None) '^Lottery/'>
+2018-02-11 13:22:57,776 [Thread-4:1964] [django.template:878] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\urls\resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ws/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^send_msg/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ajax/$'>], [<URLResolver <module 'Lottery.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Lottery\\urls.py'> (None:None) '^Lottery/'>]], 'path': 'Answer/undefined'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>
+2018-02-11 13:22:57,779 [Thread-4:1964] [django.template:878] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\urls\resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ws/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^send_msg/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ajax/$'>], [<URLResolver <module 'Lottery.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Lottery\\urls.py'> (None:None) '^Lottery/'>]], 'path': 'Answer/undefined'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>
+2018-02-11 13:22:57,783 [Thread-4:1964] [django.template:878] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\urls\resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ws/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^send_msg/$'>], [<URLResolver <module 'Answer.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Answer\\urls.py'> (None:None) '^Answer/'>, <URLPattern '^ajax/$'>], [<URLResolver <module 'Lottery.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Lottery\\urls.py'> (None:None) '^Lottery/'>]], 'path': 'Answer/undefined'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <module 'Lottery.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Lottery\\urls.py'> (None:None) '^Lottery/'>

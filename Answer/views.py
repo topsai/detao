@@ -108,7 +108,7 @@ def ajax(request):
     print('api:', api)
     code = ret0.json().get('code')
     if code == 0:
-        if api == 'gongbudaan_url' or api == 'kaiti_url' or api == 'get_roundret_url':
+        if api == 'gongbudaan_url' or api == 'kaiti_url':
             d = ret0.json().get('data')
             if d:
                 r = r + 1
@@ -149,6 +149,19 @@ def ajax(request):
             else:
                 print('err------1')
                 return HttpResponse(status=404)
+        elif api == 'get_roundret_url':
+            d = ret0.json().get('data')
+            if d:
+
+                print('get_roundret_url')
+                # 公布答案
+                # correctAnswer = d.get('qa').get('correctAnswer')
+                # amountAllUser = d.get('qa').get('amountAllUser')
+                ret_html = d
+
+                return HttpResponse(json.dumps({'r': r, 'd': json.dumps(d)}))
+            print('err------1')
+            return HttpResponse(status=404)
         else:
             r = r + 1
             print('R:', r)
