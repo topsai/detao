@@ -9,7 +9,7 @@ logger = logging.getLogger('detao')
 max = 90
 lotters = []
 # 排除
-excspt = [11, ]
+excspt = [11, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 
 
 def action():

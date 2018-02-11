@@ -81,7 +81,7 @@ data = [
             {'title': '世界上最大的古代土石建筑工程是哪一个?', 'answers': ['中国的万里长城', '埃及的金字塔', '古罗马的斗兽场'], 'correctAnswer': 0},
             {'title': '以下哪个国家的圣诞节正逢夏季?', 'answers': ['加拿大', '新西兰', '瑞士'], 'correctAnswer': 1},
             {'title': '寒月是指农历几月：', 'answers': ['10月', '11月', '12月'], 'correctAnswer': 0},
-            {'title': '我司艾斯林格大师是哪国国籍', 'answers': ['德国', '丹麦', '美国'], 'correctAnswer': 2},
+            {'title': '我司艾斯林格大师不是哪国国籍', 'answers': ['德国', '丹麦', '美国'], 'correctAnswer': 1},
 
         ]
     },
