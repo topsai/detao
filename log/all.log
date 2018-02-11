@@ -566,3 +566,31 @@ Traceback (most recent call last):
   File "C:\Users\Sai\PycharmProjects\detao\venv\lib\site-packages\django\template\base.py", line 856, in _resolve_lookup
     (bit, current))  # missing attribute
 django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <module 'Lottery.urls' from 'C:\\Users\\Sai\\PycharmProjects\\detao\\Lottery\\urls.py'> (None:None) '^Lottery/'>
+2018-02-11 16:59:18,089 [Dummy-1:5748] [django.db.backends:111] [utils:execute] [DEBUG]- (0.004) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 17:00:31,540 [Dummy-1:1032] [django.db.backends:111] [utils:execute] [DEBUG]- (0.004) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 17:00:36,454 [Dummy-1:1772] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 17:00:48,123 [Dummy-1:7356] [django.db.backends:111] [utils:execute] [DEBUG]- (0.004) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 17:02:22,238 [Dummy-1:4364] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 17:02:29,397 [Dummy-1:4760] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2018-02-11 17:03:49,855 [Dummy-1:4064] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None

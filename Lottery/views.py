@@ -9,7 +9,8 @@ logger = logging.getLogger('detao')
 max = 90
 lotters = []
 # 排除
-excspt = [11, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+excspt = [10]
+exc = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
 
 def action():
@@ -19,8 +20,7 @@ def action():
     for i in range(1, max + 1):
         lotters.append(i)
 
-    for i in excspt:
-        lotters.pop(i - 1)
+    lotters.pop(10)
     random.shuffle(lotters)
 
 
@@ -80,6 +80,8 @@ def get_ret(request):
     # 本次获奖
     while ret.__len__() < num:
         rdm = lotters.pop()
+        if rdm in exc:
+            continue
         ret.append(rdm)
     ret.sort()
     print(ret)
